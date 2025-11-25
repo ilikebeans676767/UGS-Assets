@@ -50,7 +50,7 @@ function getParts(file, start, end) {
 
 // Merge uncompressed files
 window.unityMergeComplete = Promise.all([
-    mergeFiles(getParts("Build/WebGL.data", 1, 3)),
+    mergeFiles(getParts("Build/WebGL.data", 1, 4)),
     mergeFiles(getParts("Build/WebGL.wasm", 1, 2))
 ]).then(([dataBuffer, wasmBuffer]) => {
     const dataUrl = URL.createObjectURL(new Blob([dataBuffer]));
