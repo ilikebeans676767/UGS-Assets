@@ -4635,7 +4635,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			else
 			{
 				img_.crossOrigin = "anonymous";	
-				img.crossOrigin = "anonymous";		// required for Arcade sandbox compatibility
+				try { img_.crossOrigin = "anonymous"; } catch (e) {}		// required for Arcade sandbox compatibility
 				this.queueImageLoad(img_, src_);		// use a queue to avoid requesting all images simultaneously
 			}
 		}
