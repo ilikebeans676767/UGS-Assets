@@ -26737,8 +26737,8 @@ typeProto.onCreate = function()
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.SkymenSFPlusPLus.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img.crossOrigin = "anonymous";
+if (url_.substr(0, 5) !== "data:")
+    img.crossOrigin = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	pluginProto.acts = new Acts();
@@ -27988,8 +27988,8 @@ cr.plugins_.Sprite = function(runtime)
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.Sprite.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img["crossOrigin"] = "anonymous";
+if (url_.substr(0, 5) !== "data:")
+    img.crossOrigin = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	Acts.prototype.SetCollisions = function (set_)
@@ -30366,8 +30366,8 @@ cr.plugins_.TiledBg = function(runtime)
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.TiledBg.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img.crossOrigin = "anonymous";
+if (url_.substr(0, 5) !== "data:")
+    img.crossOrigin = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	pluginProto.acts = new Acts();
@@ -37330,6 +37330,11 @@ cr.plugins_.rojoPaster = function(runtime)
                 img = sprite.texture_img;
             else
                 img = texture_2d;
+			if (!img) {
+    console.error("No image available for texture mapping");
+    ctx.restore();
+    return;
+}
             if (sprite && sprite.spritesheeted)
             {
 				this.points[0].x=x1;
